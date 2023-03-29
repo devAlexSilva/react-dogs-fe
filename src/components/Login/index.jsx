@@ -1,9 +1,9 @@
 import * as S from './main.module.css'
 
-export function Home() {
+export function Login() {
   return (
-    <div className=".container">
-    Home
+    <div>
+      login
     </div>
   )
 }
