@@ -1,0 +1,35 @@
+.header {
+  box-shadow: 0 3px 1px rgba(0, 0, 0, .1);
+  position: fixed; /*position fixed e top 0 no header, combinado com 
+                    uma padding-top no body com o mesmo valor da altura 
+                    do header (deixar uma altura fixa no header e passar como valor no padding-top do body)*/
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  background-color: #fff;
+}
+
+.nav {
+  height: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.linkHome img {
+ display: inline-block;
+ padding: 0 .5rem 0;
+}
+
+.linkLogin {
+  color: #333;
+}
+
+.linkLogin::after {
+  content: '';
+  display: inline-block;
+  width: 14px;
+  height: 17px;
+  background: url('../../assets/usuario.svg') no-repeat center center;
+  margin-left: .5rem;
+}
