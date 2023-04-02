@@ -1,6 +1,8 @@
 import { useState } from 'react'
-import * as S from './main.module.css'
 import axios from 'axios'
+import { Input } from '../Input'
+import * as S from './main.module.css'
+import { Button } from '../Button'
 
 export function LoginForm() {
   const [userName, setUserName] = useState('')
@@ -17,28 +19,27 @@ export function LoginForm() {
       password
     })
     
-    console.log(data.token)
+    console.log(data)
 
     setUserName('')
     setPassword('')
   }
   return (
     <form onSubmit={(e) => handleLogin(e)}>
-      <input 
+      <Input 
       type='text' 
-      name='userName' 
-      id='userName'
+      name='username' 
       value={userName}
-      onChange={(e) => setUserName(e.target.value)} />
+      setValue={setUserName} />
       
-      <input 
-      type='password' 
-      name='password' 
-      id='password'
-      value={password}
-      onChange={(e) => setPassword(e.target.value)} />
+      <Input 
+      setValue={setPassword} 
+      value={password} 
+      name='password'
+      type='password'
+      />
       
-      <button>Login</button>
+      <Button>Login</Button>
     </form>
   )
 }
