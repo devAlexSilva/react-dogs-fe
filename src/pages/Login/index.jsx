@@ -1,8 +1,8 @@
 import { Routes, Route } from 'react-router-dom'
-import { LoginCreate } from '../../components/LoginCreate'
-import { LoginHome } from '../../components/LoginHome'
-import { LoginLost } from '../../components/LoginLost'
-import { LoginReset } from '../../components/LoginReset'
+import { LoginCreate } from './LoginCreate'
+import { LoginHome } from './LoginHome'
+import { LoginLost } from './LoginLost'
+import { LoginReset } from './LoginReset'
 import * as S from './main.module.css'
 
 export function Login() {

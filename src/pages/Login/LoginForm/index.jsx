@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import axios from 'axios'
-import { Input } from '../Input'
+import { Input } from '../../../components/Input'
 import * as S from './main.module.css'
-import { Button } from '../Button'
+import { Button } from '../../../components/Button'
 
 export function LoginForm() {
   const [userName, setUserName] = useState('')
