@@ -1,6 +1,6 @@
 import * as S from './main.module.css'
 
-export function Form() {
+export function Footer() {
   return (
     <div>
       footer
