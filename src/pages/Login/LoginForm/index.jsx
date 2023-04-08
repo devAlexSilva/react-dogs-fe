@@ -4,22 +4,26 @@ import { Input } from '../../../components/Input'
 import * as S from './main.module.css'
 import { Button } from '../../../components/Button'
 import { UseForm } from '../../../hooks/UseForm'
+import { apiUser } from '../../../api/user'
 
 export function LoginForm() {
-  const userName = UseForm('email')
-  const password = UseForm('password')
+  const userName = UseForm()
+  const password = UseForm()
 
   const handleLogin = async (e) => {
     e.preventDefault()
 
-    if (userName.isValid() && password.isValid()) {
-      const { data } = await axios.post('https://dogsapi.origamid.dev/json/jwt-auth/v1/token',
-        {
-          username: userName.value,
-          password: password.value
-        })
+    const data = {
+      username: userName.value,
+      password: password.value
+    }
 
-      console.log(data)
+    if (userName.isValid() && password.isValid()) {
+      const result = await apiUser.auth(data)
+      console.log(result)
+
+      if (result.token) window.localStorage.setItem('token', result.token)
+      console.log(await apiUser.getUser())
     }
   }
 

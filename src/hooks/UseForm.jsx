@@ -19,7 +19,6 @@ export function UseForm(type) {
   
   function validate(value) {
     if (type === false) return true //quando explicitamente não quero validar
-    console.log(fieldValue.regex.test(value))
     
     if (value.length === 0) {
       setError('campo vazio')
