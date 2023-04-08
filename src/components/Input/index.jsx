@@ -1,6 +1,6 @@
 import * as S from './main.module.css'
 
-export function Input({ setValue, value, type = 'text', name }) {
+export function Input({ type = 'text', name, value, setValue, onChange, onBlur, error }) {
   return (
     <div className={S.wrapper}>
       <label className={S.label} htmlFor={name}>
@@ -12,9 +12,10 @@ export function Input({ setValue, value, type = 'text', name }) {
         name={name}
         id={name}
         value={value}
-        onChange={(e) => setValue(e.target.value)}
+        onChange={onChange}
+        onBlur={onBlur}
       />
-      <p className={S.error}>Error</p>
+      <p className={S.error}>{error}</p>
     </div>
   )
 }

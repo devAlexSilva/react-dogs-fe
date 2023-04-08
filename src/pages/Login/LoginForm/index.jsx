@@ -1,44 +1,42 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Input } from '../../../components/Input'
 import * as S from './main.module.css'
 import { Button } from '../../../components/Button'
+import { UseForm } from '../../../hooks/UseForm'
 
 export function LoginForm() {
-  const [userName, setUserName] = useState('')
-  const [password, setPassword] = useState('')
+  const userName = UseForm('email')
+  const password = UseForm('password')
 
   const handleLogin = async (e) => {
     e.preventDefault()
 
-    if(!userName || !password) return alert('usuário e senha são obrigatórios')
-    
-    const { data } = await axios.post('https://dogsapi.origamid.dev/json/jwt-auth/v1/token',
-    {
-      username: userName,
-      password
-    })
-    
-    console.log(data)
+    if (userName.isValid() && password.isValid()) {
+      const { data } = await axios.post('https://dogsapi.origamid.dev/json/jwt-auth/v1/token',
+        {
+          username: userName.value,
+          password: password.value
+        })
 
-    setUserName('')
-    setPassword('')
+      console.log(data)
+    }
   }
+
   return (
     <form onSubmit={(e) => handleLogin(e)}>
-      <Input 
-      type='text' 
-      name='username' 
-      value={userName}
-      setValue={setUserName} />
-      
-      <Input 
-      setValue={setPassword} 
-      value={password} 
-      name='password'
-      type='password'
+      <Input
+        type='text'
+        name='username'
+        {...userName}
       />
-      
+      <Input
+        type='password'
+        name='password'
+        {...password}
+      />
+
+
       <Button>Login</Button>
     </form>
   )
