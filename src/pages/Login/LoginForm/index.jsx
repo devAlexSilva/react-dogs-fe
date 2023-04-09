@@ -2,14 +2,13 @@ import { Input } from '../../../components/Input'
 import * as S from './main.module.css'
 import { Button } from '../../../components/Button'
 import { UseForm } from '../../../hooks/UseForm'
-import { Api } from '../../../api/user'
 import { useContext } from 'react'
 import { UserContext } from '../../../context/usercontext'
 
 export function LoginForm() {
   const userName = UseForm()
   const password = UseForm()
-  const {contextLogin} = useContext(UserContext)
+  const { contextLogin, error, loading, login } = useContext(UserContext)
 
   const handleLogin = async (e) => {
     e.preventDefault()
@@ -37,8 +36,12 @@ export function LoginForm() {
         {...password}
       />
 
-
-      <Button>Login</Button>
+      {
+      loading 
+      ? <Button disabled>Carregando</Button>
+      : <Button>Login</Button>
+    }
+      {error && <p>{error}</p>}
     </form>
   )
 }

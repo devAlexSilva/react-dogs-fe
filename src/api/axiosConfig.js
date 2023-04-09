@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const baseUrl = 'https://dogsapi.origamid.dev/json'
 
-export const apiAuth = axios.create({
+export const apiConfig = axios.create({
   baseURL: baseUrl
 })
 

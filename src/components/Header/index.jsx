@@ -7,17 +7,19 @@ import { UserContext } from '../../context/usercontext'
 
 
 export function Header() {
-  const { dataUser } = useContext(UserContext)
-  console.log(dataUser)
+  const { dataUser, Logout } = useContext(UserContext)
+  
   return (
     <div className={S.header}>
       <nav className={`${S.nav} container`}>
         <Link className={S.linkHome} to='/'>
           <img src={DogIcon} alt='icone com a logo de Dogs' />
         </Link>
-        {dataUser && dataUser.email}
         {dataUser
-          ? <Link className={S.linkLogin} to='/account'>{dataUser.nome}</Link>
+          ? (<div>
+            <Link className={S.linkLogin} to='/account'>{dataUser.nome}</Link>
+            <button onClick={Logout}>logout</button>
+          </div>)
           : <Link className={S.linkLogin} to='/login'>Logar</Link>
         }
       </nav>
