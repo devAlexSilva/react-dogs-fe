@@ -6,9 +6,6 @@ export function LoginHome() {
   return (
     <>
       <LoginForm />
-      <Link to='create'>criar</Link>
-      <Link to='lost'>Esqueci minha senha</Link>
-      <Link to='reset'>reset</Link>
     </>
   )
 }
