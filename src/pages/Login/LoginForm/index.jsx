@@ -3,11 +3,13 @@ import * as S from './main.module.css'
 import { Button } from '../../../components/Button'
 import { UseForm } from '../../../hooks/UseForm'
 import { Api } from '../../../api/user'
-import { auth } from '../../../api/axiosConfig'
+import { useContext } from 'react'
+import { UserContext } from '../../../context/usercontext'
 
 export function LoginForm() {
   const userName = UseForm()
   const password = UseForm()
+  const {contextLogin} = useContext(UserContext)
 
   const handleLogin = async (e) => {
     e.preventDefault()
@@ -18,11 +20,7 @@ export function LoginForm() {
     }
 
     if (userName.isValid() && password.isValid()) {
-      const result = await auth(data)
-      console.log(result)
-
-      if (result.token) window.localStorage.setItem('token', result.token)
-      console.log(await Api.getUser())
+      await contextLogin(data)
     }
   }
 
