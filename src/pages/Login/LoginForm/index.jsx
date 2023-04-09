@@ -1,10 +1,9 @@
-import { useEffect, useState } from 'react'
-import axios from 'axios'
 import { Input } from '../../../components/Input'
 import * as S from './main.module.css'
 import { Button } from '../../../components/Button'
 import { UseForm } from '../../../hooks/UseForm'
-import { apiUser } from '../../../api/user'
+import { Api } from '../../../api/user'
+import { auth } from '../../../api/axiosConfig'
 
 export function LoginForm() {
   const userName = UseForm()
@@ -19,11 +18,11 @@ export function LoginForm() {
     }
 
     if (userName.isValid() && password.isValid()) {
-      const result = await apiUser.auth(data)
+      const result = await auth(data)
       console.log(result)
 
       if (result.token) window.localStorage.setItem('token', result.token)
-      console.log(await apiUser.getUser())
+      console.log(await Api.getUser())
     }
   }
 
