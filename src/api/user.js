@@ -1,7 +1,17 @@
-import { api } from "./axiosConfig"
+import { api, apiConfig } from "./axiosConfig"
 
 
 export const Api = {
+  cretaeUser: async ({ username, email, password }) => {
+    const { data } = await apiConfig.post('/api/user', {
+      username,
+      email,
+      password
+    })
+
+    return data
+  },
+
   getUser: async () => {
     const { data } = await api.get('/api/user')
     return data

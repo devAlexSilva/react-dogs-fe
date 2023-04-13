@@ -1,6 +1,6 @@
 import * as S from './main.module.css'
 
-export function Input({ type = 'text', name, value, setValue, onChange, onBlur, error }) {
+export function Input({ type = 'text', name, value, onChange, onBlur, error }) {
   return (
     <div className={S.wrapper}>
       <label className={S.label} htmlFor={name}>

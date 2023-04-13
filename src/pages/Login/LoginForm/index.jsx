@@ -32,12 +32,12 @@ export function LoginForm() {
         <h1 className='title'>Login</h1>
         <Input
           type='text'
-          name='username'
+          name='Usuário'
           {...userName}
         />
         <Input
           type='password'
-          name='password'
+          name='Senha'
           {...password}
         />
 
