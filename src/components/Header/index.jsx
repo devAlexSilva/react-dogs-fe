@@ -17,7 +17,7 @@ export function Header() {
         </Link>
         {dataUser
           ? (<div>
-            <Link className={S.linkLogin} to='/account'>{dataUser.nome}</Link>
+            <Link className={S.linkLogin} to='/user/account'>{dataUser.nome}</Link>
             <button onClick={Logout}>logout</button>
           </div>)
           : <Link className={S.linkLogin} to='/login'>Logar</Link>

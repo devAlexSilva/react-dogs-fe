@@ -36,7 +36,6 @@ export function LoginCreate() {
       await contextLogin(data)
 
     } catch (err) {
-      console.log(err.response.data.message)
       setError(err.response.data.message)
       
     } finally {

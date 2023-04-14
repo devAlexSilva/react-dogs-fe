@@ -17,26 +17,27 @@ export const UserStorage = ({ children }) => {
     async function autoLogin() {
       const token = window.localStorage.getItem('token')
 
-      if (token) {
-        try {
-          setError(null)
-          setLoading(true)
+      if (token === null) return navigate('/')
 
-          await Api.validateToken(token)
-          const logedUser = await Api.getUser()
+      try {
+        setError(null)
+        setLoading(true)
 
-          setDataUser(logedUser)
-          navigate('/account')
+        await Api.validateToken(token)
+        const logedUser = await Api.getUser()
 
-        } catch (err) {
-          console.log(err.response.data)
-          Logout()
+        setDataUser(logedUser)
+        setLogin(true)
+        navigate('/user')
 
-        } finally {
-          setLoading(false)
-          setLogin(false)
-        }
+      } catch (err) {
+        console.log(err.response.data)
+        Logout()
+
+      } finally {
+        setLoading(false)
       }
+
     }
     autoLogin()
   }, [])
@@ -55,7 +56,7 @@ export const UserStorage = ({ children }) => {
         const { data: logedUser } = await apiConfig.get('/api/user')
         setDataUser(logedUser)
         setLogin(true)
-        navigate('/account')
+        navigate('/user')
       }
 
     } catch (err) {
@@ -76,7 +77,16 @@ export const UserStorage = ({ children }) => {
   }
 
   return (
-    <UserContext.Provider value={{ contextLogin, dataUser, Logout, error, setError, loading, login }}>
+    <UserContext.Provider value={{
+      contextLogin,
+      dataUser,
+      Logout,
+      error,
+      setError,
+      loading,
+      setLoading,
+      login
+    }}>
       {children}
     </UserContext.Provider>
   )
