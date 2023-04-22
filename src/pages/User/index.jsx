@@ -1,16 +1,19 @@
 import { Routes, Route } from 'react-router-dom'
 import * as S from './main.module.css'
-import { Account } from './Account'
+import { UserFeed } from './UserFeed'
+import { UserNewPost } from './UserNewPost'
+import { UserStatistic } from './UserStatistc'
+import { UserHeader } from '../../components/UserHeader'
 
 export function User() {
   return (
-    <section>
-      <div>
-        <Routes>
-          <Route path='/' element={<Account />} />
-          <Route path='/account' element={<Account />} />
-        </Routes>
-      </div>
+    <section className='container'>
+      <UserHeader />
+      <Routes>
+        <Route path='/' element={<UserFeed />} />
+        <Route path='new-post' element={<UserNewPost />} />
+        <Route path='statistic' element={<UserStatistic />} />
+      </Routes>
     </section>
   )
 }

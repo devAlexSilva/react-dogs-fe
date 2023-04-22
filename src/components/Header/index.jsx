@@ -7,8 +7,8 @@ import { UserContext } from '../../context/usercontext'
 
 
 export function Header() {
-  const { dataUser, Logout } = useContext(UserContext)
-  
+  const { dataUser } = useContext(UserContext)
+
   return (
     <div className={S.header}>
       <nav className={`${S.nav} container`}>
@@ -18,7 +18,6 @@ export function Header() {
         {dataUser
           ? (<div>
             <Link className={S.linkLogin} to='/user/account'>{dataUser.nome}</Link>
-            <button onClick={Logout}>logout</button>
           </div>)
           : <Link className={S.linkLogin} to='/login'>Logar</Link>
         }
