@@ -1,3 +1,11 @@
+.header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  margin: 1rem 0 2rem;
+  position: relative;
+}
+
 .nav {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -26,4 +34,17 @@
   box-shadow: 0 0 0 3px #eee;
   border-color: #333;
   outline: none;
+}
+
+.nav a:global(.active) {
+  background-color: #fff;
+  box-shadow: 0 0 0 3px #fea;
+  border-color: #fb1;
+}
+
+/*
+esse estilo só será aplicado se eu utilizar importação do svg como svg de fato, ou componente
+*/
+.nav a:global(.active) img {
+  fill: #fb1;
 }

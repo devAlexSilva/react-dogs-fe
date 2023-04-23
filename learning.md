@@ -11,6 +11,14 @@
 * react router 6 [https://reactrouter.com/en/main/start/overview#nested-routes]
 
 
+> Active links
+* função do module css: global
+ex:. 
+``css
+.nav a:global(.active) img {color: red;}
+``
+
+
 # Outros links
 
 > referencias
