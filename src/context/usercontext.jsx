@@ -2,23 +2,24 @@ import { useEffect } from 'react'
 import { createContext, useState } from 'react'
 import { apiConfig } from '../api/axiosConfig'
 import { Api } from '../api/user'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 export const UserContext = createContext()
 
 export const UserStorage = ({ children }) => {
   const [dataUser, setDataUser] = useState(null)
-  const [login, setLogin] = useState(null)
+  const [login, setLogin] = useState(false)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
   const navigate = useNavigate()
+
+  const pathUrl = useLocation().pathname
 
   useEffect(() => {
     async function autoLogin() {
       const token = window.localStorage.getItem('token')
 
       if (token === null) return navigate('/')
-
       try {
         setError(null)
         setLoading(true)
@@ -28,18 +29,18 @@ export const UserStorage = ({ children }) => {
 
         setDataUser(logedUser)
         setLogin(true)
-        navigate('/user')
 
       } catch (err) {
-        console.log(err.response.data)
-        Logout()
+        console.log(err)
+        //Logout()
 
       } finally {
         setLoading(false)
       }
-
+  
     }
     autoLogin()
+
   }, [])
 
   async function contextLogin({ username, password }) {

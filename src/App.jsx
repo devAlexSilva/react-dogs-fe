@@ -5,7 +5,6 @@ import { Footer } from './components/Footer'
 import { Login } from './pages/Login'
 import './App.css'
 import { UserStorage } from './context/usercontext'
-import { ProtectedRoute } from './components/ProtectedRoute'
 import { User } from './pages/User'
 
 export function App() {
@@ -15,14 +14,8 @@ export function App() {
         <Header />
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/login/*' element={<Login />} />
-          <Route
-            path='/user/*'
-            element={
-              <ProtectedRoute>
-                <User />
-              </ProtectedRoute>
-            } />
+          <Route path='login/*' element={<Login />} />
+          <Route path='user/*' element={<User />} />
         </Routes>
         <Footer />
       </UserStorage>

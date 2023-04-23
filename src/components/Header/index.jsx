@@ -7,7 +7,7 @@ import { UserContext } from '../../context/usercontext'
 
 
 export function Header() {
-  const { dataUser } = useContext(UserContext)
+  const { dataUser, loading } = useContext(UserContext)
 
   return (
     <div className={S.header}>
@@ -15,11 +15,14 @@ export function Header() {
         <Link className={S.linkHome} to='/'>
           <img src={DogIcon} alt='icone com a logo de Dogs' />
         </Link>
-        {dataUser
+        {!dataUser && loading
           ? (<div>
-            <Link className={S.linkLogin} to='/user/account'>{dataUser.nome}</Link>
+            <Link className={S.linkLogin} to='/user'>{'...'}</Link>
           </div>)
-          : <Link className={S.linkLogin} to='/login'>Logar</Link>
+          : (dataUser && !loading ? <div>
+            <Link className={S.linkLogin} to='/user'>{dataUser.nome}</Link>
+          </div> :
+            <Link className={S.linkLogin} to='/login'>Logar</Link>)
         }
       </nav>
     </div>
