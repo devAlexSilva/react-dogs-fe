@@ -6,13 +6,16 @@ import addIcon from '../../assets/adicionar.svg'
 import statisticIcon from '../../assets/estatisticas.svg'
 import feedIcon from '../../assets/feed.svg'
 import logoutIcon from '../../assets/sair.svg'
+import { UseMedia } from '../../hooks/UseMedia'
 
 
 export function UserHeader() {
   const { Logout } = useContext(UserContext)
-  const [mobile, serMobile] = useState(false)
   const [title, setTitle] = useState('')
+  const [menuMobile, setMenuMobile] = useState(false)
   const location = useLocation()
+  const mobile = UseMedia('max-width:40rem')
+  
 
   useEffect(() => {
     switch (location.pathname) {
@@ -31,6 +34,9 @@ export function UserHeader() {
   return (
     <header className={S.header}>
       <h1 className='title'>{title}</h1>
+      {mobile && (
+        <button aria-label='Menu-mobile' className={`${S.mobileBtn} ${menuMobile && S.mobileBtnActive}`} onClick={() => setMenuMobile(!menuMobile)}></button>
+      )}
       <nav className={S.nav}>
         <NavLink to='/user' end><img src={feedIcon} alt="" />{mobile && 'feed'}</NavLink>
         <NavLink to='statistic'><img src={statisticIcon} alt="" />{mobile && 'estatistica'}</NavLink>

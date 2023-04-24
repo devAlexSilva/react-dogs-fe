@@ -48,3 +48,45 @@ esse estilo só será aplicado se eu utilizar importação do svg como svg de fa
 .nav a:global(.active) img {
   fill: #fb1;
 }
+
+.mobileBtn {
+  background-color: #eee;
+  border-radius: .2rem;
+  height: 40px;
+  width: 40px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.mobileBtn::after {
+  display: block;
+  content: '';
+  width: 1.2rem;
+  height: 2px;
+  background-color: currentColor;
+  border-radius: 2px;
+  box-shadow: 0 6px currentColor, 0 -6px currentColor;
+  transition: .3s;
+}
+
+.mobileBtn:focus,
+.mobileBtn:hover,
+.mobileBtnActive {
+  outline: none;
+  background-color: #fff;
+  box-shadow: 0 0 0 #fea;
+  border-color: #fb1;
+  color: #fb1;
+}
+
+.mobileBtnActive::after {
+  transform: rotate(90deg);
+  width: 4px;
+  height: 5px;
+  box-shadow: 0 9px currentColor, 0 -9px currentColor;
+}
