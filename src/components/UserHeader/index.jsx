@@ -12,10 +12,9 @@ import { UseMedia } from '../../hooks/UseMedia'
 export function UserHeader() {
   const { Logout } = useContext(UserContext)
   const [title, setTitle] = useState('')
-  const [menuMobile, setMenuMobile] = useState(false)
+  const [menuMobileIsOpen, setMenuMobileIsOpen] = useState(false)
   const location = useLocation()
   const mobile = UseMedia('max-width:40rem')
-  
 
   useEffect(() => {
     switch (location.pathname) {
@@ -28,6 +27,8 @@ export function UserHeader() {
       default:
         setTitle('Minha Conta')
     }
+
+    setMenuMobileIsOpen(false)
   }, [location])
 
 
@@ -35,9 +36,13 @@ export function UserHeader() {
     <header className={S.header}>
       <h1 className='title'>{title}</h1>
       {mobile && (
-        <button aria-label='Menu-mobile' className={`${S.mobileBtn} ${menuMobile && S.mobileBtnActive}`} onClick={() => setMenuMobile(!menuMobile)}></button>
+        <button
+          aria-label='Menu-mobile'
+          className={`${S.mobileBtn} ${menuMobileIsOpen && S.mobileBtnActive}`}
+          onClick={() => setMenuMobileIsOpen(!menuMobileIsOpen)}>
+        </button>
       )}
-      <nav className={S.nav}>
+      <nav className={`${mobile ? S.navMobile : S.nav} ${menuMobileIsOpen && mobile && S.menuMobileIsOpen}`}>
         <NavLink to='/user' end><img src={feedIcon} alt="" />{mobile && 'feed'}</NavLink>
         <NavLink to='statistic'><img src={statisticIcon} alt="" />{mobile && 'estatistica'}</NavLink>
         <NavLink to='new-post'><img src={addIcon} alt="" />{mobile && 'adicionar foto'}</NavLink>
