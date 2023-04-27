@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 
 export function UseMedia(media = '') {
-  const [matchSize, setMatchSize] = useState(false)
+  const { matches: initialMatch } = window.matchMedia(`(${media})`)
+  const [matchSize, setMatchSize] = useState(initialMatch)
 
   useEffect(() => {
     function matchWindowSize() {
