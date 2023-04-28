@@ -20,6 +20,11 @@ export const Api = {
   validateToken: async (token) => {
     const { data } = await api.post('jwt-auth/v1/token/validate')
     return data
+  },
+
+  newPhoto: async (formData) => {
+    const { data } = await api.post('/api/photo', formData)
+    return data
   }
 
 }

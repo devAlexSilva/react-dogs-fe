@@ -1,0 +1,23 @@
+.section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.inputFile {
+  margin-bottom: 1rem;
+}
+
+.preview {
+  background-position: center center;
+  background-size: cover;
+  border-radius: .5rem;
+}
+
+.preview::after {
+  content: '';
+  display: block;
+  height: 0;
+  padding-bottom: 100%; /*dessa forma a div preview ocupa todo espaço disponível na div pai*/
+}

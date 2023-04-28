@@ -10,10 +10,9 @@ export function User() {
     <section className='container'>
       <UserHeader />
       <Routes>
-        <Route path='/' element={<UserFeed />}>
-          <Route path='new-post' element={<UserNewPost />} />
-          <Route path='statistic' element={<UserStatistic />} />
-        </Route>
+        <Route path='/' element={<UserFeed />} />
+        <Route path='new-post' element={<UserNewPost />} />
+        <Route path='statistic' element={<UserStatistic />} />
       </Routes>
     </section>
   )
