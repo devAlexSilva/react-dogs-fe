@@ -25,6 +25,11 @@ export const Api = {
   newPhoto: async (formData) => {
     const { data } = await api.post('/api/photo', formData)
     return data
+  },
+
+getPhoto: async ({ page, total, user }) => {
+    const { data } = await api.get(`/api/photo/?page=${page}&total=${total}user=${user}`)
+    return data
   }
 
 }
