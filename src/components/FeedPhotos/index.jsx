@@ -29,25 +29,18 @@ export function FeedPhotos() {
   useEffect(() => {
     (async () => {
       await getPhotos()
-      console.log(photos)
     })()
 
   }, [])
 
   return (
     <>
-      {
-        photos?.map(item => {
-          return (<div key={item.id}>
-            <li>{item.author}</li>
-            <li>{item.title}</li>
-            <li><img src={item.src} alt="" /></li>
-          </div>)
-        })
-      }
+      {console.log(photos)}
       {loading && <Loading />}
-      <FeedPhotosItem />
       {error && <Error error={error} />}
+      <ul className={`${S.feed} animeLeft`}>
+        {photos?.map(photo => <FeedPhotosItem key={photo.id} photos={photo} />)}
+      </ul>
     </>
   )
 }
