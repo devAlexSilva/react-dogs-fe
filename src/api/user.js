@@ -39,5 +39,10 @@ getPhoto: async ({ page, total, user }) => {
 
   createComment: async (id, comment) => {
     await api.post(`/api/comment/${id}`, {comment: comment})
-  }
+  },
+
+  deletePhotoById: async (id) => {
+    const { data } = await api.delete(`/api/photo/${id}`)
+    return data
+  },
 }
