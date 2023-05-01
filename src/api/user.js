@@ -30,6 +30,10 @@ export const Api = {
 getPhoto: async ({ page, total, user }) => {
     const { data } = await api.get(`/api/photo/?page=${page}&total=${total}user=${user}`)
     return data
-  }
+  },
 
+  getPhotoById: async (id) => {
+    const { data } = await api.get(`/api/photo/${id}`)
+    return data
+  }
 }

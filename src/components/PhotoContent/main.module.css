@@ -1,0 +1,45 @@
+.photo {
+  margin: auto;
+  height: 36rem;
+  border-radius: .3rem;
+  background: #fff;
+  display: grid;
+  grid-template-columns: 36rem 20rem;
+  grid-template-rows: auto 1fr auto;
+  overflow: hidden;
+  opacity: 0;
+  transform: scale(.6);
+  animation: scaleImg .3s forwards;
+}
+
+@keyframes scaleImg {
+  to {
+    opacity: initial;
+    transform: initial;
+  }
+}
+
+.details {
+  padding: 2rem 2rem 0;
+}
+
+.img {
+  grid-row: 1/4;
+}
+
+.comments {
+  padding: 0 2rem;
+}
+
+@media screen and (max-width: 64rem) {
+  .photo {
+    height: auto;
+    max-height: calc(100vh - 4rem);
+    overflow-y: auto;
+    grid-template-columns: minmax(20rem, 40rem);
+  }
+
+  .img {
+    grid-row: 1;
+  }
+}

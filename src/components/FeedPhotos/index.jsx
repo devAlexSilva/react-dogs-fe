@@ -6,10 +6,11 @@ import { Error } from '../Error'
 import { Loading } from '../Loading'
 
 
-export function FeedPhotos() {
+export function FeedPhotos({ setPhotoInModal }) {
   const [photos, setPhotos] = useState([])
   const [error, setError] = useState(false)
   const [loading, setLoading] = useState(false)
+  
 
   async function getPhotos() {
     try {
@@ -33,13 +34,18 @@ export function FeedPhotos() {
 
   }, [])
 
+  async function handleClickPhoto(id) {
+    const photoClicked = await Api.getPhotoById(id)
+    setPhotoInModal(photoClicked)
+  }
+
   return (
     <>
       {console.log(photos)}
       {loading && <Loading />}
       {error && <Error error={error} />}
       <ul className={`${S.feed} animeLeft`}>
-        {photos?.map(photo => <FeedPhotosItem key={photo.id} photos={photo} />)}
+        {photos?.map(photo => <FeedPhotosItem key={photo.id} photos={photo} handleClickPhoto={handleClickPhoto} />)}
       </ul>
     </>
   )
