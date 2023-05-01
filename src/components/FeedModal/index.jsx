@@ -12,10 +12,6 @@ export function FeedModal({ photoInModal }) {
     if(e.target === e.currentTarget || e.target.id === 'closeModal') setModalIsOpen(false)
   }
 
-  async function deletePhoto() {
-    setModalIsOpen()
-  }
-
   useEffect(() => {
     setModalIsOpen(true)
   }, [photoInModal])

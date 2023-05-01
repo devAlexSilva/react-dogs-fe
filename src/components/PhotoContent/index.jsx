@@ -2,8 +2,10 @@ import { Link } from 'react-router-dom'
 import { PhotoComments } from '../PhotoComments'
 import * as S from './main.module.css'
 import { PhotoDelete } from '../PhotoDelete'
+import { ImageSkeleton } from '../ImageSkeleton'
 import { useContext } from 'react'
 import { UserContext } from '../../context/usercontext'
+
 
 export function PhotoContent({ data }) {
   const { photo, comments } = data
@@ -13,7 +15,7 @@ export function PhotoContent({ data }) {
     <div className={S.photo}>
       {console.log('data in PhotoContent:', data)}
       <div className={S.img}>
-        <img src={data.photo.src} alt="" />
+       <ImageSkeleton src={data.photo.src} alt=''/>
       </div>
 
       <div className={S.details}>
