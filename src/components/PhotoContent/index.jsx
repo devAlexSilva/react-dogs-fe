@@ -13,7 +13,7 @@ export function PhotoContent({ data }) {
 
       <div className={S.details}>
         <div>
-          <p>
+          <p className={S.author}>
             <Link to={`/perfil/${photo.author}`}>@{photo.author}</Link>
             <span className={S.viewer}>{photo.acessos}</span>
           </p>
