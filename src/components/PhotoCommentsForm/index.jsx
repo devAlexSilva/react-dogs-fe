@@ -24,7 +24,7 @@ export function PhotoCommentsForm({ id, refreshComments }) {
 
     } catch (error) {
       setError(error.response.data.message)
-      setModalIsOpen(false)
+      
     }
     finally {
       setLoading(false)
