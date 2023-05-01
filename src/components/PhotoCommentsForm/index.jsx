@@ -32,9 +32,10 @@ export function PhotoCommentsForm({ id, refreshComments }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={S.form}>
       <textarea
         id='newComment'
+        className={S.textArea}
         name='newComment'
         value={newComment}
         placeholder='Say something'
