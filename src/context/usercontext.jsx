@@ -11,6 +11,7 @@ export const UserStorage = ({ children }) => {
   const [login, setLogin] = useState(false)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
+  const [modalIsOpen, setModalIsOpen] = useState(true)
   const navigate = useNavigate()
 
   const pathUrl = useLocation().pathname
@@ -86,7 +87,9 @@ export const UserStorage = ({ children }) => {
       setError,
       loading,
       setLoading,
-      login
+      login,
+      modalIsOpen,
+      setModalIsOpen
     }}>
       {children}
     </UserContext.Provider>

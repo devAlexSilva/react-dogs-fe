@@ -35,5 +35,9 @@ getPhoto: async ({ page, total, user }) => {
   getPhotoById: async (id) => {
     const { data } = await api.get(`/api/photo/${id}`)
     return data
+  },
+
+  createComment: async (id, comment) => {
+    await api.post(`/api/comment/${id}`, {comment: comment})
   }
 }

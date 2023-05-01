@@ -1,12 +1,12 @@
 import * as S from './main.module.css'
 import { PhotoContent } from '../PhotoContent'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
+import { UserContext } from '../../context/usercontext'
 
 export function FeedModal({ photoInModal }) {
-  const [modalIsOpen, setModalIsOpen] = useState(true)
+  const { modalIsOpen, setModalIsOpen } = useContext(UserContext)
 
   function closeModal(e) {
-    console.log(e.target.id)
     if(e.target === e.currentTarget || e.target.id === 'closeModal') setModalIsOpen(false)
   }
 
