@@ -13,11 +13,13 @@ export function LoginCreate() {
   const email = UseForm('email')
   const password = UseForm('password')
   const [loading, setLoading] = useState(false)
-  const { error, setError, contextLogin } = useContext(UserContext)
-
+  const { contextLogin } = useContext(UserContext)
+  const [error, setError] = useState(null)
 
   async function handleRegister(event) {
     event.preventDefault()
+    setError(null)
+
     if (
       userName.isValid() === false ||
       email.isValid() === false ||

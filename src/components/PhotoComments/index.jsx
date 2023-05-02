@@ -16,10 +16,10 @@ export function PhotoComments({ id, comments }) {
 
   useEffect(() => {
     commentRef.current.scrollTop = commentRef.current.scrollHeight
-  },[comment])
+  }, [comment])
 
   return (
-    <>{console.log(comment)}
+    <>
       <ul className={S.comments} ref={commentRef}>
         {
           comment?.map(comment => {

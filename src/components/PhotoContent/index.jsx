@@ -13,16 +13,15 @@ export function PhotoContent({ data }) {
 
   return (
     <div className={S.photo}>
-      {console.log('data in PhotoContent:', data)}
       <div className={S.img}>
-       <ImageSkeleton src={data.photo.src} alt=''/>
+        <ImageSkeleton src={data.photo.src} alt='' />
       </div>
 
       <div className={S.details}>
         <div>
           {
             dataUser?.username === photo.author ?
-              (<PhotoDelete id={photo.id}/>) :
+              (<PhotoDelete id={photo.id} />) :
               (
                 <p className={S.author}>
                   <Link to={`/perfil/${photo.author}`}>@{photo.author}</Link>

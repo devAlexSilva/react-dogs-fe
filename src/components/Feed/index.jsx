@@ -4,13 +4,13 @@ import { useState } from 'react'
 import * as S from './main.module.css'
 
 
-export function Feed() {
+export function Feed({ user }) {
   const [photoInModal, setPhotoInModal] = useState(null)
   
   return (
     <>
       {photoInModal && <FeedModal photoInModal={photoInModal}/>}
-      <FeedPhotos setPhotoInModal={setPhotoInModal}/>
+      <FeedPhotos user={user} setPhotoInModal={setPhotoInModal}/>
     </>
   )
 }

@@ -28,7 +28,7 @@ export const Api = {
   },
 
 getPhoto: async ({ page, total, user }) => {
-    const { data } = await api.get(`/api/photo/?page=${page}&total=${total}user=${user}`)
+    const { data } = await api.get(`/api/photo/?_page=${page}&_total=${total}&_user=${user}`)
     return data
   },
 

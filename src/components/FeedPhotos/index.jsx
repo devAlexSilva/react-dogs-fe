@@ -6,17 +6,17 @@ import { Error } from '../Error'
 import { Loading } from '../Loading'
 
 
-export function FeedPhotos({ setPhotoInModal }) {
+export function FeedPhotos({ setPhotoInModal, user }) {
   const [photos, setPhotos] = useState([])
   const [error, setError] = useState(false)
   const [loading, setLoading] = useState(false)
-  
 
   async function getPhotos() {
     try {
       setError(false)
       setLoading(true)
-      const photos = await Api.getPhoto({ page: 1, total: 4, user: 0 })
+      const photos = await Api.getPhoto({ page: 1, total: 6, user })
+      
       setPhotos(photos)
 
     } catch (err) {
@@ -32,7 +32,7 @@ export function FeedPhotos({ setPhotoInModal }) {
       await getPhotos()
     })()
 
-  }, [])
+  }, [user])
 
   async function handleClickPhoto(id) {
     const photoClicked = await Api.getPhotoById(id)
@@ -41,7 +41,6 @@ export function FeedPhotos({ setPhotoInModal }) {
 
   return (
     <>
-      {console.log(photos)}
       {loading && <Loading />}
       {error && <Error error={error} />}
       <ul className={`${S.feed} animeLeft`}>
