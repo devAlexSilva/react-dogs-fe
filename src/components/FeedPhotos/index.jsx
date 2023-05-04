@@ -6,18 +6,21 @@ import { Error } from '../Error'
 import { Loading } from '../Loading'
 
 
-export function FeedPhotos({ setPhotoInModal, user }) {
+export function FeedPhotos({ setPhotoInModal, user, page, setFiredInfinityScrollEvent }) {
   const [photos, setPhotos] = useState([])
   const [error, setError] = useState(false)
   const [loading, setLoading] = useState(false)
-
+  
+  const totalPhotosPerPage = 3
+  
   async function getPhotos() {
     try {
       setError(false)
       setLoading(true)
-      const photos = await Api.getPhoto({ page: 1, total: 6, user })
+      const photos = await Api.getPhoto({ page: page, total: totalPhotosPerPage, user })
       
       setPhotos(photos)
+      photos.length < totalPhotosPerPage && setFiredInfinityScrollEvent(false)
 
     } catch (err) {
       setError(error)
