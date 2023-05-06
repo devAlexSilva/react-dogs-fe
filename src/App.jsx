@@ -7,6 +7,7 @@ import { Photo } from './pages/Photo'
 import './App.css'
 import { UserStorage } from './context/usercontext'
 import { User } from './pages/User'
+import { Profile } from './pages/Profile'
 
 export function App() {
   return (
@@ -18,6 +19,7 @@ export function App() {
           <Route path='login/*' element={<Login />} />
           <Route path='user/*' element={<User />} />
           <Route path='photo/:id' element={<Photo />} />
+          <Route path='profile/:author' element={<Profile />} />
         </Routes>
         <Footer />
       </UserStorage>
