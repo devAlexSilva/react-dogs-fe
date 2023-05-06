@@ -4,6 +4,7 @@ import { Feed } from '../../components/Feed'
 
 export function Profile() {
   const { author } = useParams()
+  console.log(author)
 
   return(
     <section className='container mainContainer'>

@@ -4,6 +4,7 @@ import { LoginLost } from './LoginLost'
 import { LoginReset } from './LoginReset'
 import * as S from './main.module.css'
 import { LoginForm } from './LoginForm'
+import { Error404 } from '../../components/Error404'
 
 export function Login() {
   return (
@@ -14,6 +15,7 @@ export function Login() {
           <Route path='create' element={<LoginCreate />} />
           <Route path='lost' element={<LoginLost />} />
           <Route path='reset' element={<LoginReset />} />
+          <Route path='*' element={<Error404 />} />
         </Routes>
       </div  >
     </section>
