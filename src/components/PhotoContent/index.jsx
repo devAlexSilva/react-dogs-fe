@@ -7,12 +7,12 @@ import { useContext } from 'react'
 import { UserContext } from '../../context/usercontext'
 
 
-export function PhotoContent({ data }) {
+export function PhotoContent({ data, singlePhoto }) {
   const { photo, comments } = data
   const { dataUser } = useContext(UserContext)
 
   return (
-    <div className={S.photo}>
+    <div className={ `${S.photo} ${singlePhoto ? S.singlePhoto : ''}` }>
       <div className={S.img}>
         <ImageSkeleton src={data.photo.src} alt='' />
       </div>
@@ -24,13 +24,13 @@ export function PhotoContent({ data }) {
               (<PhotoDelete id={photo.id} />) :
               (
                 <p className={S.author}>
-                  <Link to={`/perfil/${photo.author}`}>@{photo.author}</Link>
+                  <Link to={`/profile/${photo.author}`}>@{photo.author}</Link>
                   <span className={S.viewer}>{photo.acessos}</span>
                 </p>
               )
           }
           <h1 className='title'>
-            <Link to={`/foto/${photo.id}`}>{photo.title}</Link>
+            <Link to={`/photo/${photo.id}`}>{photo.title}</Link>
           </h1>
           <ul className={S.attributes}>
             <li>{photo.peso} kg</li>

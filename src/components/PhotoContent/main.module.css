@@ -12,6 +12,27 @@
   animation: scaleImg .3s forwards;
 }
 
+.singlePhoto {
+  grid-template-columns: 1fr;
+  height: auto;
+}
+
+.singlePhoto :is(ul, form) {
+  padding: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.img {
+  grid-row: 1/4;
+}
+
+.singlePhoto .img {
+  grid-row: 1;
+  border-radius: .8rem;
+  overflow: hidden;
+}
+
 @keyframes scaleImg {
   to {
     opacity: initial;
@@ -22,9 +43,8 @@
 .details {
   padding: 2rem 2rem 0;
 }
-
-.img {
-  grid-row: 1/4;
+.singlePhoto .details {
+  padding: 1rem 0 0;
 }
 
 @media screen and (max-width: 64rem) {
@@ -35,18 +55,10 @@
     grid-template-columns: minmax(20rem, 40rem);
     
   }
-/*
-  .photo:last-child > ul {
-    color: #eee;
-    margin-top: 3rem;
-    overflow-y: auto;
-    max-height: 150vh;
-  }
-*/
 
-.img {
-  grid-row: 1;
-}
+  .img {
+    grid-row: 1;
+  }
 }
 
 .author {
