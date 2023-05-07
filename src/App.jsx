@@ -16,14 +16,16 @@ export function App() {
     <BrowserRouter>
       <UserStorage>
         <Header />
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='login/*' element={<Login />} />
-          <Route path='user/*' element={<User />} />
-          <Route path='photo/:id' element={<Photo />} />
-          <Route path='profile/:author' element={<Profile />} />
-          <Route path='*' element={<Error404 />} />
-        </Routes>
+        <main className='appMain'>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='login/*' element={<Login />} />
+            <Route path='user/*' element={<User />} />
+            <Route path='photo/:id' element={<Photo />} />
+            <Route path='profile/:author' element={<Profile />} />
+            <Route path='*' element={<Error404 />} />
+          </Routes>
+        </main>
         <Footer />
       </UserStorage>
     </BrowserRouter>

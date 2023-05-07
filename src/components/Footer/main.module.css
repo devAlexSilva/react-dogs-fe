@@ -1,0 +1,14 @@
+.footer {
+  background: #fb1;
+  padding: 1rem;
+  text-align: center;
+  color: #764701;
+}
+
+.footer img {
+  display: inline-block;
+}
+
+.footer p {
+  margin-top: 1rem;
+}

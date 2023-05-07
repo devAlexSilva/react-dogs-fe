@@ -13,11 +13,24 @@ body {
   font-family: var(--type-first);
 }
 
-h1,h2,h3,h4,p {
+.appMain {
+  
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh +10rem);
+  flex: 1;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
   margin: 0;
 }
 
-ul, li {
+ul,
+li {
   padding: 0;
   margin: 0;
   list-style: none;
@@ -32,7 +45,8 @@ img {
   max-width: 100%;
 }
 
-button, input {
+button,
+input {
   display: block;
   font-size: 1rem;
   font-family: var(--type-first);
