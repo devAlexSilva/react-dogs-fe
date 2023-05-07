@@ -33,7 +33,7 @@ export const Api = {
   },
 
   getPhotoById: async (id) => {
-    const { data } = await api.get(`/api/photo/${id}`)
+    const { data } = await apiConfig.get(`/api/photo/${id}`)
     return data
   },
 
@@ -46,9 +46,13 @@ export const Api = {
     return data
   },
 
-  lostPassword: async (body) => {
-    console.log(body)
-    const { data } = await apiConfig.post(`/api/password/lost`, body)
+  lostPassword: async ({ login, url}) => {
+    const { data } = await apiConfig.post(`/api/password/lost`, { login, url })
     return data
   },
+
+  resetPassword: async ({ login, password, key }) => {
+    const { data } = await apiConfig.post(`/api/password/reset`, { login, password, key })
+    return data
+  }
 }

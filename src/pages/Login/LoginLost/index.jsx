@@ -26,13 +26,12 @@ export function LoginLost() {
         setError(null)
         setLoading(true)
 
-        const { data } = await Api.lostPassword(reqBody)
+        const data = await Api.lostPassword(reqBody)
         console.log(data)
         setDataResponse(data)
 
       } catch (err) {
         setError(err.response.data.message)
-
       }
       finally {
         setLoading(false)
