@@ -27,8 +27,8 @@ export const Api = {
     return data
   },
 
-getPhoto: async ({ page, total, user }) => {
-    const { data } = await api.get(`/api/photo/?_page=${page}&_total=${total}&_user=${user}`)
+  getPhoto: async ({ page, total, user }) => {
+    const { data } = await apiConfig.get(`/api/photo/?_page=${page}&_total=${total}&_user=${user}`)
     return data
   },
 
@@ -38,11 +38,17 @@ getPhoto: async ({ page, total, user }) => {
   },
 
   createComment: async (id, comment) => {
-    await api.post(`/api/comment/${id}`, {comment: comment})
+    await api.post(`/api/comment/${id}`, { comment: comment })
   },
 
   deletePhotoById: async (id) => {
     const { data } = await api.delete(`/api/photo/${id}`)
+    return data
+  },
+
+  lostPassword: async (body) => {
+    console.log(body)
+    const { data } = await apiConfig.post(`/api/password/lost`, body)
     return data
   },
 }
