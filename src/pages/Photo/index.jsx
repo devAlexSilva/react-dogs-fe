@@ -28,7 +28,7 @@ export function Photo() {
 
   return (
     <>
-      <Head title={`Foto - ${photo.id}`} description='Página de detalhes da foto' />
+      <Head title={`Foto - ${photo?.id}`} description='Página de detalhes da foto' />
       <section className='container mainContainer'>
         {
           loading && <PhotoContent data={photo} singlePhoto={true} />

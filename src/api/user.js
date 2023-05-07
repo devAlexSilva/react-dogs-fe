@@ -54,5 +54,10 @@ export const Api = {
   resetPassword: async ({ login, password, key }) => {
     const { data } = await apiConfig.post(`/api/password/reset`, { login, password, key })
     return data
+  },
+
+  getStatistic: async () => {
+    const { data } = await api.get(`api/stats`)
+    return data
   }
 }
