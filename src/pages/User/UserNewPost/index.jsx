@@ -2,7 +2,8 @@ import * as S from './main.module.css'
 import { Input } from '../../../components/Input'
 import { UseForm } from '../../../hooks/UseForm'
 import { Button } from '../../../components/Button'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
+import { Head } from '../../../components/Head'
 import { Api } from '../../../api/user'
 import { Error } from '../../../components/Error'
 import { useNavigate } from 'react-router-dom'
@@ -47,18 +48,21 @@ export function UserNewPost() {
   }
 
   return (
-    <section className={`${S.section} animeLeft`}>
-      <form onSubmit={handlePost}>
-        <Input type='text' name='nome' {...name} />
-        <Input type='number' name='peso' {...weight} />
-        <Input type='number' name='idade' {...age} />
-        <input type='file' name='img' className={S.inputFile} id='img' onChange={handleImg} />
-        {loading ? <Button disabled>Enviando...</Button> : <Button>enviar</Button>}
-        {error && <Error error={error} />}
-      </form>
-      {
-        img.preview && <div className={S.preview} style={{ backgroundImage: `url(${img.preview})` }}></div>
-      }
-    </section>
+    <>
+      <Head title='Nova Foto' description='publicar nova foto' />
+      <section className={`${S.section} animeLeft`}>
+        <form onSubmit={handlePost}>
+          <Input type='text' name='nome' {...name} />
+          <Input type='number' name='peso' {...weight} />
+          <Input type='number' name='idade' {...age} />
+          <input type='file' name='img' className={S.inputFile} id='img' onChange={handleImg} />
+          {loading ? <Button disabled>Enviando...</Button> : <Button>enviar</Button>}
+          {error && <Error error={error} />}
+        </form>
+        {
+          img.preview && <div className={S.preview} style={{ backgroundImage: `url(${img.preview})` }}></div>
+        }
+      </section>
+    </>
   )
 }

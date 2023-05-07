@@ -1,7 +1,11 @@
 import * as S from './main.module.css'
+import { Head } from '../../../components/Head'
 
 export function UserStatistic() {
   return (
-    <>statistic</>
+    <>
+      <Head title='Estatistica' description='estatistica do usuário' />
+      <p>statistic</p>
+    </>
   )
 }

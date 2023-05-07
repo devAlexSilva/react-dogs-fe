@@ -3,8 +3,8 @@ import { Button } from '../../../components/Button'
 import { Input } from '../../../components/Input'
 import { UseForm } from '../../../hooks/UseForm'
 import { UserContext } from '../../../context/usercontext'
-import * as S from './main.module.css'
 import { Error } from '../../../components/Error'
+import { Head } from '../../../components/Head'
 import { Api } from '../../../api/user'
 
 
@@ -39,25 +39,28 @@ export function LoginCreate() {
 
     } catch (err) {
       setError(err.response.data.message)
-      
+
     } finally {
       setLoading(false)
     }
   }
 
   return (
-    <section className='animeLeft'>
-      <h1 className='title'>Cadastre-se</h1>
-      <form>
-        <Input name='Usuário' type='text' {...userName} />
-        <Input name='Email' type='email' {...email} />
-        <Input name='Senha' type='password' {...password} />
-        {
-          loading ? <Button disabled>Carregando</Button> : <Button onClick={handleRegister} >enviar</Button>
-        }
+    <>
+    <Head title='register' description='criação de usuário'/>
+      <section className='animeLeft'>
+        <h1 className='title'>Cadastre-se</h1>
+        <form>
+          <Input name='Usuário' type='text' {...userName} />
+          <Input name='Email' type='email' {...email} />
+          <Input name='Senha' type='password' {...password} />
+          {
+            loading ? <Button disabled>Carregando</Button> : <Button onClick={handleRegister} >enviar</Button>
+          }
 
-        <Error error={error} />
-      </form>
-    </section>
+          <Error error={error} />
+        </form>
+      </section>
+    </>
   )
 }

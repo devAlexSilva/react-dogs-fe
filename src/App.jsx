@@ -10,6 +10,7 @@ import { User } from './pages/User'
 import { Profile } from './pages/Profile'
 import { Error404 } from './components/Error404'
 
+
 export function App() {
   return (
     <BrowserRouter>

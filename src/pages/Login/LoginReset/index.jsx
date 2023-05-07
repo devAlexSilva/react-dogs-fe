@@ -3,9 +3,9 @@ import { Api } from '../../../api/user'
 import { Input } from '../../../components/Input'
 import { Button } from '../../../components/Button'
 import { Error } from '../../../components/Error'
+import { Head } from '../../../components/Head'
 import { UseForm } from '../../../hooks/UseForm'
 import { useEffect, useState } from 'react'
-import { Navigate } from 'react-router-dom'
 
 
 export function LoginReset() {
@@ -54,6 +54,7 @@ export function LoginReset() {
   }
   return (
     <>
+    <Head title='Resetar Senha' description='criar nova senha para recuperar a conta perdida' />
       <h1 className='title'>Resetar Senha</h1>
       { 
       reseted ? window.location.replace('/login') : (

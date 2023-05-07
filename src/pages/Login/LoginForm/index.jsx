@@ -3,6 +3,7 @@ import * as S from './main.module.css'
 import * as styleBtn from '../../../components/Button/main.module.css'
 import { Button } from '../../../components/Button'
 import { UseForm } from '../../../hooks/UseForm'
+import { Head } from '../../../components/Head'
 import { useContext } from 'react'
 import { UserContext } from '../../../context/usercontext'
 import { Error } from '../../../components/Error'
@@ -27,6 +28,8 @@ export function LoginForm() {
   }
 
   return (
+    <>
+    <Head title='login' description='acessar conta' />
     <section className='animeLeft'>
       <form className={S.form} onSubmit={(e) => handleLogin(e)}>
         <h1 className='title'>Login</h1>
@@ -57,5 +60,6 @@ export function LoginForm() {
         <Link className={styleBtn.button} to='/login/create'>Criar Conta</Link>
       </div>
     </section>
+    </>
   )
 }

@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom'
 import * as S from './main.module.css'
 import { Api } from '../../api/user'
 import { useEffect, useState } from 'react'
-import { FeedModal } from '../../components/FeedModal'
+import { Head } from '../../components/Head'
 import { PhotoContent } from '../../components/PhotoContent'
 
 
@@ -27,10 +27,13 @@ export function Photo() {
   }, [])
 
   return (
-    <section className='container mainContainer'>
-      {
-        loading && <PhotoContent data={photo} singlePhoto={true} />
-      }
-    </section>
+    <>
+      <Head title={`Foto - ${photo.id}`} description='Página de detalhes da foto' />
+      <section className='container mainContainer'>
+        {
+          loading && <PhotoContent data={photo} singlePhoto={true} />
+        }
+      </section>
+    </>
   )
 }

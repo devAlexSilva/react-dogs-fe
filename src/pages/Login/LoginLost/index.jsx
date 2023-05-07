@@ -3,6 +3,7 @@ import { Input } from '../../../components/Input'
 import { Button } from '../../../components/Button'
 import { UseForm } from '../../../hooks/UseForm'
 import { Api } from '../../../api/user'
+import { Head } from '../../../components/Head'
 import { useState } from 'react'
 import { Error } from '../../../components/Error'
 
@@ -42,23 +43,26 @@ export function LoginLost() {
 
 
   return (
-    <section>
-      <h1 className='title'>Recuperar Conta</h1>
-      {
-        dataResponse ? (
-          <p className={S.sendedEmail}>{dataResponse}</p>
-        ) : (
-          <form onSubmit={handlesubmit}>
-            <Input label='user / email' name='email' type='text' {...name} />
-            {
-              loading ?
-                <Button disabled>Enviando...</Button> :
-                <Button>Enviar</Button>
-            }
-          </form>
-        )
-      }
-      <Error error={error} />
-    </section>
+    <>
+      <Head title='Recuperar conta' description='Recuperar conta perdida' />
+      <section>
+        <h1 className='title'>Recuperar Conta</h1>
+        {
+          dataResponse ? (
+            <p className={S.sendedEmail}>{dataResponse}</p>
+          ) : (
+            <form onSubmit={handlesubmit}>
+              <Input label='user / email' name='email' type='text' {...name} />
+              {
+                loading ?
+                  <Button disabled>Enviando...</Button> :
+                  <Button>Enviar</Button>
+              }
+            </form>
+          )
+        }
+        <Error error={error} />
+      </section>
+    </>
   )
 }
