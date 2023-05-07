@@ -1,10 +1,10 @@
 import * as S from './main.module.css'
 
-export function Input({ type = 'text', name, value, onChange, onBlur, error }) {
+export function Input({ type = 'text', name, value, onChange, onBlur, error, label }) {
   return (
     <div className={S.wrapper}>
       <label className={S.label} htmlFor={name}>
-        {name}
+        {label || name}
       </label>
       <input
         className={S.input}

@@ -56,3 +56,7 @@ export function Feed({ user }) {
     </>
   )
 }
+
+Feed.defaultProps = {
+ user: '0'
+}

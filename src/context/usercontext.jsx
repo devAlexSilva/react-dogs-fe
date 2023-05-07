@@ -14,35 +14,39 @@ export const UserStorage = ({ children }) => {
   const [modalIsOpen, setModalIsOpen] = useState(true)
   const navigate = useNavigate()
 
-  const pathUrl = useLocation().pathname
+  const currentPath = window.location.pathname
 
   useEffect(() => {
     async function autoLogin() {
       const token = window.localStorage.getItem('token')
 
-      if (token === null) return navigate('/')
-      try {
-        setError(null)
-        setLoading(true)
+      if (token === null && currentPath.includes('/user')) return navigate('/login')
 
-        await Api.validateToken(token)
-        const logedUser = await Api.getUser()
+      else if (token && currentPath.includes('/user')) {
+        try {
+          setError(null)
+          setLoading(true)
 
-        setDataUser(logedUser)
-        setLogin(true)
+          await Api.validateToken(token)
+          const logedUser = await Api.getUser()
 
-      } catch (err) {
-        console.log(err)
-        //Logout()
+          setDataUser(logedUser)
+          setLogin(true)
 
-      } finally {
-        setLoading(false)
+          navigate(currentPath)
+
+        } catch (err) {
+          console.log(err)
+          Logout()
+
+        } finally {
+          setLoading(false)
+        }
+
       }
-  
     }
     autoLogin()
-
-  }, [])
+  }, [currentPath])
 
   async function contextLogin({ username, password }) {
     try {
@@ -59,6 +63,7 @@ export const UserStorage = ({ children }) => {
         setDataUser(logedUser)
         setLogin(true)
         navigate('/user')
+        window.location.reload()
       }
 
     } catch (err) {
