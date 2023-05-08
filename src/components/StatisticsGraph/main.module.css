@@ -19,9 +19,9 @@
 }
 
 .empty {
+  grid-column: 1/2;
   color: #4c1;
   text-transform: uppercase;
-  text-align: center;
   margin-top: 4rem;
   letter-spacing: 1.2px;
   font-weight: 600;

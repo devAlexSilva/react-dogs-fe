@@ -1,14 +1,14 @@
 import * as S from './main.module.css'
 import { Head } from '../../../components/Head'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, lazy, Suspense } from 'react'
 import { Api } from '../../../api/user'
 import { Loading } from '../../../components/Loading'
 import { Error } from '../../../components/Error'
-import { StatisticsGraph } from '../../../components/StatisticsGraph'
+const StatisticsGraph = lazy(() => import('../../../components/StatisticsGraph'))
 
 
 export function UserStatistic() {
-  const [data, setData] = useState([{}])
+  const [data, setData] = useState(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
 
@@ -37,9 +37,13 @@ export function UserStatistic() {
   if (error) return <Error error={error} />
   else if (loading) return <Loading />
   else return (
-    <div>
-      <Head title='Estatistica' description='estatistica do usuário' />
-      <StatisticsGraph data={data}/>
-    </div>
+    <>
+      {data &&
+        <Suspense fallback={<></>}>
+          <Head title='Estatistica' description='estatistica do usuário' />
+          <StatisticsGraph data={data}/>
+        </Suspense>
+      }
+    </>
   )
 }

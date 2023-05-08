@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import * as S from './main.module.css'
 import { VictoryPie, VictoryChart, VictoryBar } from 'victory'
 
-export function StatisticsGraph({ data }) {
+export default function StatisticsGraph({ data }) {
   const [graph, setGraph] = useState([])
   const [total, setTotal] = useState(0)
 
@@ -55,4 +55,8 @@ export function StatisticsGraph({ data }) {
       }
     </section>
   )
+}
+
+StatisticsGraph.defaultProps = {
+  data: []
 }
