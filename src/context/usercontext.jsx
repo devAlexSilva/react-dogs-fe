@@ -33,7 +33,7 @@ export const UserStorage = ({ children }) => {
           setDataUser(logedUser)
           setLogin(true)
 
-          navigate('/user')
+          navigate(currentPath, {replace: true})
 
         } catch (err) {
           console.log(err)
@@ -62,8 +62,8 @@ export const UserStorage = ({ children }) => {
         const { data: logedUser } = await apiConfig.get('/api/user')
         setDataUser(logedUser)
         setLogin(true)
-        navigate('/user')
-        window.location.reload()
+        navigate('/user', {replace: true})
+        //window.location.reload()
       }
 
     } catch (err) {
@@ -80,7 +80,7 @@ export const UserStorage = ({ children }) => {
     setError(null)
 
     window.localStorage.removeItem('token')
-    navigate('/')
+    navigate('/', {replace: true})
   }
 
   return (
