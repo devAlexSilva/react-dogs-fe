@@ -10,7 +10,7 @@ export function Header() {
   const { dataUser, loading } = useContext(UserContext)
 
   return (
-    <div className={S.header}>
+    <header className={S.header}>
       <nav className={`${S.nav} container`}>
         <Link className={S.linkHome} to='/'>
           <img src={DogIcon} alt='icone com a logo de Dogs' />
@@ -25,6 +25,6 @@ export function Header() {
             <Link className={S.linkLogin} to='/login'>Logar</Link>)
         }
       </nav>
-    </div>
+    </header>
   )
 }

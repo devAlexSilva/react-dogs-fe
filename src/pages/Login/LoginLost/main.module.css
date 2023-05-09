@@ -1,3 +1,11 @@
+.formLost {
+  margin-top: 20%;
+}
+
+.formLost > form {
+  margin-top: 15%;
+}
+
 .sendedEmail {
   color: #4c1;
   text-transform: uppercase;

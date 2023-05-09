@@ -1,8 +1,10 @@
 .footer {
+  width: 100%;
   background: #fb1;
   padding: 1rem;
   text-align: center;
   color: #764701;
+  
 }
 
 .footer img {

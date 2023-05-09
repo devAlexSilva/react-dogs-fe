@@ -45,7 +45,7 @@ export function LoginLost() {
   return (
     <>
       <Head title='Recuperar conta' description='Recuperar conta perdida' />
-      <section>
+      <section className={S.formLost}>
         <h1 className='title'>Recuperar Conta</h1>
         {
           dataResponse ? (

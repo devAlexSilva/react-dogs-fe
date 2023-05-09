@@ -53,7 +53,7 @@ export function LoginReset() {
     }
   }
   return (
-    <>
+    <section className={S.formReset}>
     <Head title='Resetar Senha' description='criar nova senha para recuperar a conta perdida' />
       <h1 className='title'>Resetar Senha</h1>
       { 
@@ -69,6 +69,6 @@ export function LoginReset() {
         </form>
       )}
       {error && <Error error={error} />}
-    </>
+    </section>
   )
 }
