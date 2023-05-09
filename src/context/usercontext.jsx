@@ -20,7 +20,7 @@ export const UserStorage = ({ children }) => {
     async function autoLogin() {
       const token = window.localStorage.getItem('token')
 
-      if (token === null && currentPath.includes('/user')) return navigate('/login')
+      if (token === null && currentPath.includes('/user')) return navigate('/login', {replace: true})
 
       else if (token && currentPath.includes('/user')) {
         try {

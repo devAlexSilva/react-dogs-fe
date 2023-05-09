@@ -30,7 +30,7 @@ export function UserNewPost() {
       setError(false)
       setLoading(true)
       await Api.newPhoto(formData)
-      navigate('/user')
+      navigate('/user', {replace:true})
 
     } catch (error) {
       setError(error.response.data.message)
