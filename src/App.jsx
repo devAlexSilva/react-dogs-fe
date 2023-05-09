@@ -14,20 +14,20 @@ import { Error404 } from './components/Error404'
 export function App() {
   return (
     <BrowserRouter>
-      <UserStorage>
-        <Header />
-        <main className='appMain'>
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='login/*' element={<Login />} />
-            <Route path='user/*' element={<User />} />
-            <Route path='photo/:id' element={<Photo />} />
-            <Route path='profile/:author' element={<Profile />} />
-            <Route path='*' element={<Error404 />} />
-          </Routes>
-        </main>
-        <Footer />
-      </UserStorage>
+        <UserStorage>
+          <Header />
+          <main className='appMain'>
+            <Routes>
+              <Route path='/' element={<Home />} />
+              <Route path='login/*' element={<Login />} />
+              <Route path='user/*' element={<User />} />
+              <Route path='photo/:id' element={<Photo />} />
+              <Route path='profile/:author' element={<Profile />} />
+              <Route path='*' element={<Error404 />} />
+            </Routes>
+          </main>
+          <Footer />
+        </UserStorage>
     </BrowserRouter>
   )
 

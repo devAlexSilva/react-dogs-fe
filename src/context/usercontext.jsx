@@ -33,7 +33,7 @@ export const UserStorage = ({ children }) => {
           setDataUser(logedUser)
           setLogin(true)
 
-          navigate(currentPath)
+          navigate('/user')
 
         } catch (err) {
           console.log(err)
