@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { createContext, useState } from 'react'
 import { apiConfig } from '../api/axiosConfig'
 import { Api } from '../api/user'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 export const UserContext = createContext()
 
@@ -63,7 +63,7 @@ export const UserStorage = ({ children }) => {
         setDataUser(logedUser)
         setLogin(true)
         navigate('/user', {replace: true})
-        window.location.reload()
+        //window.location.reload()
       }
 
     } catch (err) {
