@@ -22,14 +22,19 @@
 }
 
 .photo .views {
-  grid-area: 1/1;
   background: rgba(0, 0, 0, .3);
+  grid-area: 1/1;
   color: #fff;
   font-size: 1rem;
   
   justify-content: center;
   align-items: center;
   display: none;
+  /*muda para flex no hover*/
+}
+
+.photo:hover .views {
+  display: flex;
 }
 
 .views::before {
@@ -39,8 +44,4 @@
   display: inline-block;
   margin-right: .5rem;
   background: url('../../assets/visualizacao.svg') no-repeat;
-}
-
-.photo:hover .views {
-  display: flex;
 }

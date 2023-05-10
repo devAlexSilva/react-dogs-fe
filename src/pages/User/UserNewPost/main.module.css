@@ -5,6 +5,12 @@
   margin-bottom: 2rem;
 }
 
+@media screen and (max-width: 40rem) {
+  .section {
+    grid-template-columns: 1fr;
+  }
+}
+
 .inputFile {
   margin-bottom: 1rem;
 }

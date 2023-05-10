@@ -9,11 +9,13 @@ import { UserStorage } from './context/usercontext'
 import { User } from './pages/User'
 import { Profile } from './pages/Profile'
 import { Error404 } from './components/Error404'
+import { Suspense } from 'react'
 
 
 export function App() {
   return (
     <BrowserRouter>
+      <Suspense fallback={<></>}>
         <UserStorage>
           <Header />
           <main className='appMain'>
@@ -28,6 +30,7 @@ export function App() {
           </main>
           <Footer />
         </UserStorage>
+      </Suspense>
     </BrowserRouter>
   )
 

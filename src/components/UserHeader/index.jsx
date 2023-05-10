@@ -22,7 +22,7 @@ export function UserHeader() {
         setTitle('Estatistica')
         break
       case '/user/new-post':
-        setTitle('Nova Postagem')
+        setTitle('Novo Post')
         break
       default:
         setTitle('Minha Conta')
