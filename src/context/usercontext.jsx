@@ -63,7 +63,7 @@ export const UserStorage = ({ children }) => {
         setDataUser(logedUser)
         setLogin(true)
         navigate('/user', {replace: true})
-        //window.location.reload()
+        window.location.reload()
       }
 
     } catch (err) {
