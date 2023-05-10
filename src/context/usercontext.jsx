@@ -37,7 +37,7 @@ export const UserStorage = ({ children }) => {
 
         } catch (err) {
           console.log(err)
-          Logout()
+          //Logout()
 
         } finally {
           setLoading(false)
